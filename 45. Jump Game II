@@ -1,0 +1,31 @@
+class Solution {
+    public int jump(int[] nums) {
+        int n=nums.length;
+        int arr[]=new int[n];
+        arr[n-1]=0;
+        for(int i=n-2;i>=0;i--)
+        {
+          int a=nums[i];
+          int min=Integer.MAX_VALUE;
+          for(int j=1;j<=a;j++)
+             {
+                if(i+j<nums.length && min>arr[i+j])
+                {
+                    min=arr[i+j];
+                }
+                
+             }
+            if(min==Integer.MAX_VALUE)
+             {
+                arr[i]=min; 
+             }
+             else{
+                  arr[i]=min+1; 
+             }
+          }
+          
+        return arr[0];
+        
+        
+    }
+}
